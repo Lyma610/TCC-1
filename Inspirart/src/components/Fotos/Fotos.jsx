@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../Home/Home.css'; // Importando o CSS
-import img1 from '../../assets/img-1.jpeg';
-import img2 from '../../assets/img-2.jpeg';
-import img3 from '../../assets/img-3.jpeg';
-import img4 from '../../assets/img-4.jpeg';
-import img5 from '../../assets/img-5.jpeg';
-import img6 from '../../assets/img-6.jpeg';
+import '../Fotos/Fotos.css'; // Importando o CSS
+import Foto1 from '../../assets/Foto1.jpg'
+import Foto2 from '../../assets/Foto2.avif'
+import Foto3 from '../../assets/Foto3.jpg'
+import Foto4 from '../../assets/Foto4.png'
+import Foto5 from '../../assets/Foto5.jpg'
+import Foto6 from '../../assets/Foto6.jpeg'
 import { FaHome } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa";
@@ -16,7 +16,7 @@ import { FaComments } from "react-icons/fa";
 
 
 
-function Home() {
+function Fotos() {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -27,39 +27,43 @@ function Home() {
     alert('Você clicou em ' + action);
   };
 
-  const images = [img1, img2, img3, img4, img5, img6];
+  const images = [Foto1,Foto2,Foto3,Foto4,Foto5,Foto6];
 
   return (
-    <div className='all'>
-    <div className="screen">
-      <div className="top-bar">
-        <div className="profile-button" onClick={toggleMenu}></div>
-        <div className="menu-container">
+    <div className='allFotos'>
+    <div className="-SCReen">
+      <div className="-TOP-bar">
+        <div className="-PROfile-button" onClick={toggleMenu}></div>
+        <div className="-MENu-container">
+                <span>Terror</span>
+                <span>Comedia</span>
+                <span>Drama</span>
+                <span>Ação </span>
+                <span>Ficção</span>
         </div>
       </div>
 
       {/* Menu Dropdown */}
-      <div className={`menu ${isMenuVisible ? 'show' : 'hide'}`}>
+      <div className={`-MENu ${isMenuVisible ? 'show' : 'hide'}`}>
         <Link to="Musicas">Musica</Link>
         <Link to="Filmes">Filme</Link>
         <Link to="Artes Digitais">Artes Digitais</Link>
         <Link to="Artes Fisicas">Artes Físicas</Link>
         <Link to="Fotos">Fotografis</Link>
         <Link to="Perfil">Perfil</Link>
-
         
       </div>
 
-      <div className="video-grid">
+      <div className="-VIDeo-grid">
       {images.map((url, index) => (
-    <div className="video" key={index}>
+    <div className="-VIDeo" key={index}>
       <img 
         src={url} 
         alt={index + 1} 
         style={{ width: '480px', height: '270px' }} 
       />
       
-            <div className="video-icons">
+            <div className="-VIDeo-icons">
               <div onClick={() => showMessage('Comunidade')}>👥</div>
               <div onClick={() => showMessage('Curtir')}>❤️</div>
               <div onClick={() => showMessage('Seguir')}>⭐</div>
@@ -68,8 +72,8 @@ function Home() {
         ))}
       </div>
 
-      <div className="bottom-bar">
-        <FaHome />
+      <div className="-BOTtom-bar">
+      <Link to="/Home"><FaHome /></Link>
         <CiSearch />
         <FaPlus />
         <CiBellOn />
@@ -81,4 +85,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Fotos;

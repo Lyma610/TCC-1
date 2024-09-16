@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../Home/Home.css'; // Importando o CSS
+import '../Musicas/Musicas.css'; // Importando o CSS
 import img1 from '../../assets/img-1.jpeg';
 import img2 from '../../assets/img-2.jpeg';
 import img3 from '../../assets/img-3.jpeg';
@@ -16,7 +16,7 @@ import { FaComments } from "react-icons/fa";
 
 
 
-function Home() {
+function Musicas() {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -30,16 +30,21 @@ function Home() {
   const images = [img1, img2, img3, img4, img5, img6];
 
   return (
-    <div className='all'>
-    <div className="screen">
-      <div className="top-bar">
-        <div className="profile-button" onClick={toggleMenu}></div>
-        <div className="menu-container">
+    <div className='allMusicas'>
+    <div className="-SCREen">
+      <div className="-TOP-Bar">
+        <div className="-PROFile-button" onClick={toggleMenu}></div>
+        <div className="-MENU-container">
+          <span>Rap</span>
+          <span>Hip Hop</span>
+          <span>Rock</span>
+          <span>Funk</span>
+          <span>Samba</span>
         </div>
       </div>
 
       {/* Menu Dropdown */}
-      <div className={`menu ${isMenuVisible ? 'show' : 'hide'}`}>
+      <div className={`-MENU ${isMenuVisible ? 'show' : 'hide'}`}>
         <Link to="Musicas">Musica</Link>
         <Link to="Filmes">Filme</Link>
         <Link to="Artes Digitais">Artes Digitais</Link>
@@ -50,16 +55,16 @@ function Home() {
         
       </div>
 
-      <div className="video-grid">
+      <div className="-VIDEo-grid">
       {images.map((url, index) => (
-    <div className="video" key={index}>
+    <div className="-VIDEo" key={index}>
       <img 
         src={url} 
         alt={index + 1} 
         style={{ width: '480px', height: '270px' }} 
       />
       
-            <div className="video-icons">
+            <div className="-VIDEo-icons">
               <div onClick={() => showMessage('Comunidade')}>👥</div>
               <div onClick={() => showMessage('Curtir')}>❤️</div>
               <div onClick={() => showMessage('Seguir')}>⭐</div>
@@ -68,8 +73,8 @@ function Home() {
         ))}
       </div>
 
-      <div className="bottom-bar">
-        <FaHome />
+      <div className="-BOTTom-bar">
+        <Link to="/Home"><FaHome /></Link>
         <CiSearch />
         <FaPlus />
         <CiBellOn />
@@ -81,4 +86,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Musicas;
