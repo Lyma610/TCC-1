@@ -1,20 +1,41 @@
 import {FaUser, FaLock} from "react-icons/fa";
-
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 import "./Login.css";
-const Login = () => {
+
+function Login () {
 
     const [username, setUsername] = useState("")
      const [password, setPassword] = useState("")
 
-     const handleSubmit = () => {
+     function handleSubmit ()  {
         event.preventDefault();
         
         alert("Enviando os Dados:" + username + " - " + password);
      };
 
+
+
+
+  {/*navegaçao entre as paginas atraves do botao*/}
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate('/Home');
+  };
+
+
+  
+  {/*funçao criada para o botao conseguir fazer as duas coisas ao mesmo tempo*/}
+  const chamarAmbasFuncoes = () =>{
+     handleSubmit();
+     handleNavigate();
+  }
+
+
   return (
+    <div className="bg-img">
     <div className="container">
         <form onSubmit={handleSubmit}>
             <h1>Acesse o sistema</h1>
@@ -38,15 +59,20 @@ const Login = () => {
                 </label>
                 <a href="#">Esqueceu a senha?</a>
             </div>
-
-            <button>Entrar</button> 
+            
+            {/*Botao "Entrar", linkado com a página 'Home'*/}
+            <button onClick={chamarAmbasFuncoes}>Entrar</button> 
 
             <div className="signup-link">
                  <p>
                      Nao tem uma conta? <a href="#">Registrar</a>    
                 </p>    
-            </div>       
+            </div> 
+
+            
+                  
         </form>
+    </div>
     </div>
   )
 }
